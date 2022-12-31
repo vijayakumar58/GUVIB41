@@ -86,9 +86,14 @@
 //Smart Component - It describes how things work(container - Provides data and logic)
 //Dumb Component - It describes how things look(presentational - Presents only data on the DOM)
 
-//Routing - Important
+//Routing - Important : Based on the URL that a user visits, specific content is 
+//          loaded on the page (Router --> Routes --> Route)
 //Delete Users
 //React Hooks - Important
+//useState - It is hook that always returns a stateful value and a function that updates it.
+//           (Value and a function).
+//         - Lazy state initialization, functional update, direct update, Re-creating
+//useEffect - It allows you or your component to be aware about changes.
 
 
 

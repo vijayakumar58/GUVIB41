@@ -20,6 +20,19 @@ class PhoneDirectory extends Component {
     }
   }
 
+  deleteUser = (userId) => {
+    let userList = this.state.userList;
+    let userIndex = 0;
+    userList.forEach(function (user, index) {
+      if (user.id === userId) {
+        userIndex = index;
+      }
+    }, this);
+    let newUsers = userList;
+    newUsers.splice(userIndex, 1);
+    this.setState({ userList: newUsers })
+  }
+
   addUser = (newUser) => {
     let userListNew = this.state.userList;
     if (userListNew.length > 0) {
@@ -30,7 +43,6 @@ class PhoneDirectory extends Component {
     }
     userListNew.push(newUser);
     this.setState({ userList: userListNew });
-    console.log(this.state.userList);
   }
 
   render() {
@@ -40,10 +52,10 @@ class PhoneDirectory extends Component {
       <div className='main-container'>
         <Router>
           <Routes>
-            <Route exact path='/' element={<ShowUser userList={this.state.userList} />}>
+            <Route exact path='/' element={<ShowUser userList={this.state.userList} deleteUserHandler={this.deleteUser} />}>
             </Route>
 
-            <Route exact path='/add' element={<AddUser addUserHandler={this.addUser} />}>
+            <Route exact path='/addUser' element={<AddUser addUserHandler={this.addUser} />}>
             </Route>
           </Routes>
         </Router>
